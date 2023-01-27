@@ -6,6 +6,7 @@ function App() {
   const [title, setTitle] = useState('');
   const [shortDescription, setShortDescription] = useState('');
   const [creatives, setCreatives] = useState([]);
+  const [castRoles, setCastRoles] = useState([]);
 
   useEffect(() => {
     fetch(
@@ -18,7 +19,8 @@ function App() {
           info.data.attributes.shortDescription.replace(/(<([^>]+)>)/gi, '')
         );
         setCreatives(info.included.filter((x) => x.type === 'creatives'));
-        console.log(info.included.filter((x) => x.type === 'creatives'));
+        setCastRoles(info.included.filter((x) => x.type === 'castRoles'));
+        console.log(info);
       });
   }, []);
 
@@ -36,6 +38,13 @@ function App() {
         </div>
       ))}
       <h1>Cast</h1>
+      {castRoles.map((x) => (
+        <div key={x.id}>
+          <h1>
+            {x.attributes.name} : {x.attributes.role}
+          </h1>
+        </div>
+      ))}
     </div>
   );
 }
