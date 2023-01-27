@@ -1,12 +1,7 @@
 import { useState, useEffect } from 'react';
 
 function App() {
-  // redo state as an object
-  // const [info, setInfo] = useState([]);
-  const [title, setTitle] = useState('');
-  const [shortDescription, setShortDescription] = useState('');
-  const [creatives, setCreatives] = useState([]);
-  const [castRoles, setCastRoles] = useState([]);
+  const [performanceInfo, setPerformanceInfo] = useState({});
 
   useEffect(() => {
     fetch(
@@ -14,23 +9,25 @@ function App() {
     )
       .then((response) => response.json())
       .then((info) => {
-        setTitle(info.data.attributes.title);
-        setShortDescription(
-          info.data.attributes.shortDescription.replace(/(<([^>]+)>)/gi, '')
-        );
-        setCreatives(info.included.filter((x) => x.type === 'creatives'));
-        setCastRoles(info.included.filter((x) => x.type === 'castRoles'));
-        console.log(info);
+        setPerformanceInfo({
+          title: info.data.attributes.title,
+          shortDescription: info.data.attributes.shortDescription.replace(
+            /(<([^>]+)>)/gi,
+            ''
+          ),
+          creatives: info.included.filter((x) => x.type === 'creatives'),
+          castRoles: info.included.filter((x) => x.type === 'castRoles'),
+        });
       });
   }, []);
 
   return (
     <div>
-      <h1>{title}</h1>
+      <h1>{performanceInfo.title}</h1>
       <h2>Date: 10/3/2023</h2>
-      <h2>{shortDescription}</h2>
+      <h2>{performanceInfo.shortDescription}</h2>
       <h1>Creatives</h1>
-      {creatives.map((x) => (
+      {performanceInfo.creatives.map((x) => (
         <div key={x.id}>
           <h1>
             {x.attributes.name} : {x.attributes.role}
@@ -38,7 +35,7 @@ function App() {
         </div>
       ))}
       <h1>Cast</h1>
-      {castRoles.map((x) => (
+      {performanceInfo.castRoles.map((x) => (
         <div key={x.id}>
           <h1>
             {x.attributes.name} : {x.attributes.role}
