@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import CastRoles from './components/CastRoles';
+import Creatives from './components/Creatives';
 
 function App() {
   const [performanceInfo, setPerformanceInfo] = useState({});
@@ -27,20 +29,12 @@ function App() {
       <h2>Date: 10/3/2023</h2>
       <h2>{performanceInfo.shortDescription}</h2>
       <h1>Creatives</h1>
-      {performanceInfo.creatives.map((x) => (
-        <div key={x.id}>
-          <h1>
-            {x.attributes.name} : {x.attributes.role}
-          </h1>
-        </div>
+      {performanceInfo.creatives.map((creativeInfo) => (
+        <Creatives info={creativeInfo} />
       ))}
       <h1>Cast</h1>
-      {performanceInfo.castRoles.map((x) => (
-        <div key={x.id}>
-          <h1>
-            {x.attributes.name} : {x.attributes.role}
-          </h1>
-        </div>
+      {performanceInfo.castRoles.map((castRolesInfo) => (
+        <CastRoles info={castRolesInfo} />
       ))}
     </div>
   );
