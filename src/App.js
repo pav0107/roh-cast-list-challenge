@@ -31,13 +31,13 @@ function App() {
       <h1 className="pt-5 pb-2 text-2xl">Creatives</h1>
       <div>
         {performanceInfo.creatives.map((creativeInfo) => (
-          <Creatives info={creativeInfo} />
+          <Creatives key={creativeInfo.id} info={creativeInfo} />
         ))}
       </div>
       <h1 className="pt-5 pb-2 text-2xl">Cast</h1>
       <div>
         {performanceInfo.castRoles.map((castRolesInfo) => (
-          <CastRoles info={castRolesInfo} />
+          <CastRoles key={castRolesInfo.id} info={castRolesInfo} />
         ))}
       </div>
     </div>
