@@ -1,5 +1,25 @@
 # Cast List Challenge
 
+The challenge was to build a tool for the ROH. Please see below for the information I was provided with.
+
+![page](/public/page.png)
+
+## Approach
+
+I decided to build this project using React, slowly displaying each piece of info, one at a time, starting with just the title.
+
+I came across the CORS issue and let recruitment know so they could inform the dev team, but then found a work-around using a Chrome extension.
+
+I initially used useState for each piece of info. When I got everything on screen, I then refactored to have an object with useState.
+
+I then extracted cast and creative information into separate components, and finally added some styling.
+
+I was getting an error message due to mapping before the API call received the data, so added optional chaining.
+
+I then changed the title and favicon.
+
+# Cast List Challenge Info Provided
+
 Dev challenge to build a tool for the ROH
 
 ## Setup
@@ -11,11 +31,11 @@ upcoming production. Please follow these instructions to complete the task.
 
 Create a simple app that displays the:
 
--   `title`
--   `shortDescription`
--   List of `creatives` associated with the `productions`
-    -   Their `name`s and `role`s
--   List of cast members (`castRoles`) for the performance (`activities`)
+- `title`
+- `shortDescription`
+- List of `creatives` associated with the `productions`
+  - Their `name`s and `role`s
+- List of cast members (`castRoles`) for the performance (`activities`)
 
 #### Production Information
 
@@ -27,7 +47,7 @@ Create a simple app that displays the:
 
 #### Example design
 
-![Example Design](/images/cast-list-challenge.png "Example Design")
+![Example Design](/public/cast-list-challenge.png 'Example Design')
 
 ## Technical Background
 
