@@ -1,24 +1,46 @@
 # Cast List Challenge
 
-The challenge was to build a tool for the ROH. Please see below for the information I was provided with.
+The challenge was to build a tool for the ROH. Please see further down for the information I was provided with.
+
+This was my final result:
 
 ![page](/public/page.png)
 
 ## Approach
 
-I decided to build this project using React, slowly displaying each piece of info, one at a time, starting with just the title.
+- I decided to build this project using React, and started out by displaying each piece of information, one at a time, beginning with just the title of the production.
 
-I came across the CORS issue and let recruitment know so they could inform the dev team, but then found a work-around using a Chrome extension.
+- The first issue I came across was with CORS as the access-control-allow-origin is set to https://roh.org.uk. I let recruitment know so they could inform the dev team, but quickly found a work-around using [this Chrome extension](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf).
 
-I initially used useState for each piece of info. When I got everything on screen, I then refactored to have an object with useState.
+- I initially used separate useStates for each piece of state. After getting everything on screen, I then refactored to have a single useState, passing in an empty object.
 
-I then extracted cast and creative information into separate components, and finally added some styling.
+- I then extracted cast and creative information into separate components, and finally added some styling using Tailwind CSS.
 
-I was getting an error message due to mapping before the API call received the data, so added optional chaining.
+- I was getting an error message due to mapping before the API call received the data, so added optional chaining.
 
-I then changed the title and favicon.
+- Finally I changed the title and favicon, then tweaked the styling a bit more and did a final bit of refactoring.
 
-# Cast List Challenge Info Provided
+## To Run Locally
+
+In your terminal run the following:
+
+```
+git clone https://github.com/pav0107/roh-cast-list-challenge
+```
+
+```
+cd roh-cast-list-challenge
+```
+
+```
+npm install
+```
+
+```
+npm run start
+```
+
+# Cast List Challenge – Info Provided
 
 Dev challenge to build a tool for the ROH
 

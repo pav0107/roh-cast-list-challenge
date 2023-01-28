@@ -4,7 +4,7 @@ function Creatives({ info }) {
   return (
     <div className="text-center">
       <h1>
-        {info.attributes.name} – {info.attributes.role}
+        {info.name} – {info.role}
       </h1>
     </div>
   );
