@@ -36,6 +36,8 @@ cd roh-cast-list-challenge
 npm install
 ```
 
+Make sure you have Chrome extension for the CORS issue, [like this one](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf)
+
 ```
 npm run start
 ```
